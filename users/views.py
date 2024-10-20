@@ -37,6 +37,16 @@ def user_login_view(request):
     return render(request, 'users/login.html', {'form': form})
 
 
+@login_required
+def user_profile_view(request):
+    user_object = request.user
+    context = {
+        'user_object': user_object,
+        'title': f'Ваш профиль {user_object.first_name}',
+    }
+    return render(request, 'users/profile.html', context)
+
+
 def user_logout_view(request):
     logout(request)
     return redirect('app:index')
