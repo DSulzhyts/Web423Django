@@ -21,3 +21,9 @@ class UserRegisterForm(forms.ModelForm):
             print('Пароли не совпадают')
             raise ValidationError('Пароли не совпадают')
         return temp_data['password2']
+
+
+class UserLoginForm(forms.Form):
+    email = forms.EmailField()
+    password = forms.CharField(widget=forms.PasswordInput
+                               )
