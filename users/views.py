@@ -35,3 +35,8 @@ def user_login_view(request):
     else:
         form = UserLoginForm()
     return render(request, 'users/login.html', {'form': form})
+
+
+def user_logout_view(request):
+    logout(request)
+    return redirect('app:index')
